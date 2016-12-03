@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <div th:replace="base :: headcopy"></div>
+</head>
+<body>
+<div th:replace="base :: headercopy"></div>
+<div th:replace="base :: flash"></div>
+<nav>
+    <ul>
+        <li class="selected"><a th:href="@{/projects}">Projects</a></li>
+        <li><a th:href="@{/collaborators}">Collaborators</a></li>
+        <li><a th:href="@{/roles}">Roles</a></li>
+    </ul>
+</nav>
+<section>
+    <div class="container wrapper">
+        <div class="project-list single">
+            <div class="project">
+                <h2 th:text="${project.name}">Website Project</h2>
+                <p th:text="${project.description}">Design and build a custom website</p>
+                <span class="tag" th:text="${project.status}"
+                      th:classappend="${#strings.toLowerCase(project.status)}">Active</span>
+            </div>
+            <div class="roles-collaborators">
+                <h3>Collaborators &amp; Roles</h3>
+                <div class="list-item"  th:each="entry : ${rolesAssignment}">
+                    <span class="primary"
+                          th:text="${entry.key.name}">Role Name
+                    </span>
+                    <span class="secondary"
+                          th:text="${entry.value.name}">Unassigned
+                    </span>
+                </div>
+            </div>
+            <div class="actions">
+                <a class="button" th:href="@{|/projects/${project.id}/edit|}">Edit Project</a>
+                <a class="button edit-2" th:href="@{|/projects/${project.id}/collaborators|}">Edit
+                                                                                              Collaborators</a>
+                <form th:action="@{|/projects/${project.id}/delete|}" style="display: inline"
+                      method="post">
+                    <button class="button delete-button" type="submit">
+                        Delete Project
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

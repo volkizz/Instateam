@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <div th:replace="base :: headcopy"></div>
+</head>
+<body>
+<div th:replace="base :: headercopy"></div>
+<div th:replace="base :: flash"></div>
+<nav>
+    <ul>
+        <li><a th:href="@{/projects}">Projects</a></li>
+        <li class="selected"><a th:href="@{/collaborators}">Collaborators</a></li>
+        <li><a th:href="@{/roles}">Roles</a></li>
+    </ul>
+</nav>
+<section>
+    <div class="container wrapper">
+        <form>
+            <h2>Manage Collaborators</h2>
+            <div class="list-item" th:each="coll : ${collaborators}">
+                <span class="primary"
+                    th:text="${coll.name}">Collaborator Name
+                </span>
+                <span class="secondary"
+                    th:text="${coll.role.name}">Role Name
+                </span>
+                <span>
+                    <a class="button" th:href="@{|/collaborators/${coll.id}|}">Edit</a>
+                </span>
+
+            </div>
+        </form>
+        <!--Edit COLLABORATOR-->
+        <form th:action="@{/collaborators}" method="post" th:object="${collaborator}">
+            <div class="actions add-new-collaborator">
+                <div class="error-message" th:if="${#fields.hasErrors('name')}"
+                     th:errors="*{name}"></div>
+                <input type="text" th:field="*{name}" placeholder="Name..."/>
+                <input type="hidden" th:field="*{id}"/>
+                <div class="custom-select">
+                    <span class="dropdown-arrow"></span>
+                    <select th:field="*{role}">
+                        <option th:each="role:${roles}" th:value="${role.id}"
+                                th:text="${role.name}">Role...
+                            <input type="hidden"
+                                   th:field="*{role.id}"
+                                   th:value="${role.id}"/></option>
+                    </select>
+                </div>
+                <input type="submit" style="width: 60px" class="button" value="Add"/>
+            </div>
+        </form>
+    </div>
+</section>
+</body>
+</html>

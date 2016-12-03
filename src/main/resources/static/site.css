@@ -1,0 +1,462 @@
+
+
+/* ==========================================================================
+   Global Styles
+   ========================================================================== */
+body {
+	background: #edecec;
+	font-size: 18px;
+	color: #747372;
+	font-family: 'Inconsolata', Helvetica, sans-serif;
+	font-weight: 400;
+}
+.container {
+	margin: 0 auto;
+	padding: 0;
+	background: transparent;
+	max-width: 700px;
+}
+header .site-header {
+	height: 120px;
+}
+header .logo {
+	font-weight: 700;
+	color: #444342;
+	text-decoration: none;
+	font-size: 30px;
+	margin: 60px 0 0 0;
+	float: left;
+}
+header .new-project {
+	float: right;
+	margin: 55px 0 0 0;
+}
+@media only screen and (max-width: 700px) {
+    header .site-header {padding: 0 35px;height: 75px;}
+    header .logo {margin-top: 22px;}
+    header .new-project {margin-top: 16px;}
+}
+nav {
+	margin: 0 auto;
+	padding: 0 35px;
+	max-width: 630px;
+	background: #747372;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	font-size: 18px;
+}
+@media only screen and (max-width: 700px) {
+    nav {border-radius: 0;}
+}
+nav:after {
+	content: "";
+  	display: table;
+  	clear: both;
+}
+nav ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	float: left;
+}
+nav ul li {
+	float: left;
+	margin-right: 23px;
+	padding: 27px 0 21px 0;
+}
+nav ul li a {
+	text-decoration: none;
+	color: #d3d3d2;
+	padding: 10px 0;
+}
+nav ul li a:hover {
+	color: #FFF;
+}
+nav ul li.selected {
+	border-bottom: 5px solid #585756;
+}
+nav ul li.selected a {
+	color: #FFF;
+	font-weight: 700;
+}
+
+
+
+/* ==========================================================================
+   Button Styles
+   ========================================================================== */
+
+.button {
+	padding: 11px 13px;
+	background: #55aa9d;
+	border: 2px solid #55aa9d;
+	border-radius: 5px;
+	text-decoration: none;
+	color: #FFF;
+	font-size: 18px;
+	margin: 0 10px 10px 0;
+	float: left;
+	position: relative;
+}
+.button.button-secondary {
+	background: transparent;
+	border-color: #e1e0e0;
+	color: #747372;
+	margin-left: 5px;
+}
+.button.icon-left {
+	padding-left: 38px;
+}
+.button.icon-left i {
+	position: absolute;
+	top: 8px;
+	left: 8px;
+}
+.button:focus {
+	outline: 0;
+}
+
+/* Form validation messages */
+.error input {
+	border-width: 2px;
+	border-color: #ac4343;
+	border-bottom: none;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+.error .error-message {
+	border: 2px solid #ac4343;
+	border-radius: 0 0 6px 6px;
+	background-color: #ac4343;
+	color: rgb(254,251,251);
+	padding: 10px;
+}
+
+.file-wrapper.error {
+	border-width: 2px;
+	border-color: #ac4343;
+}
+
+.file-wrapper.error .error-message {
+	border-radius: 0;
+}
+
+.error:not(.file-wrapper) {
+	display: flex;
+	display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+	display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+	display: -ms-flexbox;      /* TWEENER - IE 10 */
+	display: -webkit-flex;
+	flex-direction: column;
+	-webkit-flex-direction: column;
+}
+
+.error .cs-select {
+	order: -1;
+	-webkit-order: -1;
+}
+
+.error .cs-select.cs-skin-border:not(.cs-active) .cs-placeholder {
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+	border-color: #ac4343;
+	border-width: 2px;
+}
+
+
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+h1,
+h2,
+h3 {
+	margin: 0;
+	font-weight: bold;
+	line-height: 1.3em;
+	color: #444342;
+}
+h1 a,
+h2 a,
+h3 a {
+	color: #444342;
+	text-decoration: underline;
+}
+h1 {
+	font-size: 28px;
+}
+h2 {
+	font-size: 23px;
+}
+h3 {
+	font-size: 18px;
+	font-weight: 700;
+}
+p {
+	line-height: 1.4em;
+	margin: 0 0 20px 0;
+	color: #747372;
+}
+a {
+	text-decoration: none;
+}
+p a {
+	text-decoration: underline;
+}
+strong {
+	font-weight: 700;
+}
+
+
+
+
+/* ==========================================================================
+   Page Styles
+   ========================================================================== */
+
+.wrapper {
+	background: #FFF;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+@media only screen and (max-width: 700px) {
+    .wrapper {border-radius: 0;}
+}
+.tag {
+	font-size: 14px;
+	text-transform: uppercase;
+	padding: 4px 10px;
+	color: #FFF;
+	border-radius: 20px;
+	font-weight: 700;
+}
+.tag.active {
+	background: #72c38d;
+}
+.tag.archived {
+	background: #bbbab9;
+}
+.list-item {
+	border-top: 1px solid #e1e0e0;
+	padding: 18px 35px;
+}
+.actions {
+	padding: 25px 35px 15px 35px;
+	background: #FFF;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+.actions:after {
+	content: "";
+  	display: table;
+  	clear: both;
+}
+@media only screen and (max-width: 700px) {
+    .actions {border-radius: 0;}
+}
+.project {
+	border-bottom: 1px solid #e1e0e0;
+	position: relative;
+	padding: 35px 35px;
+}
+.project:last-child {
+	border: 0;
+}
+.project h2 {
+	margin-bottom: 3px;
+}
+.project h2 a {
+	display: block;
+	margin-right: 70px;
+}
+.project p {
+	margin-bottom: 0;
+}
+.project .tag {
+	position: absolute;
+	top: 40px;
+	right: 35px;
+}
+.project-list.single .project {
+	border: 0;
+}
+.project-list.single .project h2 {
+	font-size: 32px;
+	margin-top: -4px;
+}
+.roles-collaborators {
+	margin-top: 20px;
+	border-bottom: 1px solid #e1e0e0;
+}
+.roles-collaborators h3 {
+	margin: 0 0 18px 35px;
+}
+.primary {
+	font-weight: 700;
+}
+.secondary {
+	float: right;
+	color: #747372;
+}
+
+
+
+/* ==========================================================================
+   Custom Select Styles
+   ========================================================================== */
+
+
+.custom-select {
+  font-size: 18px;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 30px;
+}
+.custom-select select {
+  outline: none;
+  -webkit-appearance: none;
+  display: block;
+  padding: 11px 36px 11px 13px;
+  margin: 0;
+  border: 2px solid #c1c1c1;
+  border-radius: 5px;
+  background: #FFF;
+  color: #888;
+  line-height: normal;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  width: 100%;
+}
+.custom-select .dropdown-arrow {
+  background: #FFF;
+  bottom: 3px;
+  position: absolute;
+  right: 4px;
+  top: 7px;
+  width: 26px;
+  pointer-events: none;
+}
+.custom-select .dropdown-arrow:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  margin-top: -5px;
+  pointer-events: none;
+  border-top: 8px solid #888;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+}
+.custom-select .dropdown-arrow:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  margin-top: -5px;
+  pointer-events: none;
+  border-top: 4px solid #FFF;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+}
+
+
+
+
+/* ==========================================================================
+   Form Styles
+   ========================================================================== */
+
+form {
+	padding: 35px 35px 0 35px;
+}
+form label {
+	display: block;
+	margin-bottom: 13px;
+	color: #888;
+}
+form input[type=text],
+form textarea {
+	border: 2px solid #e1e0e0;
+	font-size: 18px;
+	padding: 4px 13px;
+	margin-bottom: 30px;
+	border-radius: 4px;
+	width: calc(100% - 32px);
+	line-height: 1.8em;
+}
+form input[type=text]:focus,
+form textarea:focus {
+	outline: 0;
+	border-color: #747372;
+}
+form input[type=text]:hover,
+form textarea:hover {
+	border-color: #747372;
+}
+input[type=submit] {
+	margin-right: 5px;
+}
+form select {
+	display: block;
+	margin-bottom: 30px;
+}
+form select:focus {
+	outline: 0;
+}
+form .checkbox-list {
+	list-style: none;
+	margin: 13px 0 0 0;
+	padding: 0;
+}
+form .checkbox-list li {
+	border-top: 1px solid #e1e0e0;
+	padding: 23px 35px;
+	margin:  0 -35px;
+}
+form .checkbox-list li:last-child {
+	border-bottom: 1px solid #e1e0e0;
+}
+form .checkbox-list li input {
+	margin-right: 3px;
+}
+form .checkbox-list select {
+	float: right;
+}
+form .checkbox-list .custom-select {
+	margin-top: -13px;
+	float: right;
+}
+form .actions {
+	margin: 0 -35px;
+}
+form .add-new-role input {
+	width: calc(100% - 100px);
+	margin: 0 10px 10px 0;
+	float: left;
+}
+form .add-new-collaborator input {
+	width: calc(50% - 70px);
+	margin: 0 10px 10px 0;
+	float: left;
+}
+form .add-new-collaborator .custom-select {
+	width: calc(50% - 40px);
+	margin: 0 10px 10px 0;
+	float: left;
+}
+form .add-new-role .button,
+form .add-new-collaborator .button {
+	width: 30px;
+	text-align: center;
+	float: left;
+	margin: 0;
+}
+
+
+
+
+
+

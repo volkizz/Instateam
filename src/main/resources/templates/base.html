@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div th:fragment="headcopy">
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+        <title>InstaTeam</title>
+        <link href='https://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet'
+              type='text/css'/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+        <link rel="stylesheet" th:href="@{/normalize.css}"/>
+        <link rel="stylesheet" th:href="@{/site.css}"/>
+    </head>
+</div>
+<body>
+<div th:fragment="headercopy">
+    <header>
+        <div class="container">
+            <div class="site-header">
+                <a class="logo" th:href="@{/projects}">InstaTeam</a>
+                <a class="new-project button icon-left" href="/projects/add"><i class="material-icons">add</i>
+                    New
+                    Project</a>
+            </div>
+        </div>
+    </header>
+</div>
+<div th:fragment="flash" th:if="${flash != null}" class="container">
+    <!--<i class="right material-icons" data-close="">close</i>-->
+    <div th:text="${flash.message}" class="flash"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <div th:replace="base :: headcopy"></div>
+</head>
+<body>
+<div th:replace="base :: headercopy"></div>
+<div th:replace="base :: flash"></div>
+<nav>
+    <ul>
+        <li class="selected"><a th:href="@{/projects}">Projects</a></li>
+        <li><a th:href="@{/collaborators}">Collaborators</a></li>
+        <li><a th:href="@{/roles}">Roles</a></li>
+    </ul>
+</nav>
+<section>
+    <div class="container wrapper">
+        <div class="project-list">
+            <div class="project" th:each="project : ${projects}">
+                <h2><a th:href="@{|/projects/${project.id}|}" th:text="${project.name}">Project
+                                                                                        Name</a>
+                </h2>
+                <p th:text="${project.description}">Description</p>
+                <p> Created on
+                    <span th:text="${#dates.format(project.startDate, 'MMM dd, yyyy')}"></span>
+                </p>
+                <span class="tag active" th:text="${project.status}">Active</span>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

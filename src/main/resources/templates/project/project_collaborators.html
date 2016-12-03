@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <div th:replace="base :: headcopy"></div>
+</head>
+
+<body>
+<div th:replace="base :: headercopy"></div>
+<nav>
+    <ul>
+        <li class="selected"><a th:href="@{/projects}">Projects</a></li>
+        <li><a th:href="@{/collaborators}">Collaborators</a></li>
+        <li><a th:href="@{/roles}">Roles</a></li>
+    </ul>
+</nav>
+<section>
+    <div class="container wrapper">
+        <div class="clearfix">
+            <form th:action="@{|/projects/${project.id}/collaborators/update|}"
+                  method="post" class="left-side"
+                  th:object="${project}">
+                <label th:text="|Edit wrappedList: ${project.name}">
+                    Edit Collaborators: Project Name
+                </label>
+                <ul class="checkbox-list">
+                    <li th:each="role : *{rolesNeeded}">
+                        <span th:text="${role.name}" class="primary">Role Name</span>
+                        <div class="custom-select">
+                            <span class="dropdown-arrow"></span>
+                            <select class="not-assigned" th:field="*{collaborators}">
+                                <option class="active"
+                                        th:each="collaborator : ${role.collaborators}"
+                                        th:value="${collaborator.id}"
+                                        th:text="${collaborator.name}">
+                                    Collaborator Name
+                                </option>
+                            </select>
+                        </div>
+                    </li>
+                </ul>
+                <div class="actions">
+                    <input type="submit" value="Save" class="button"/>
+                    <a th:href="@{|/projects/${project.id}|}"
+                       class="button button-secondary">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+</body>
+</html>

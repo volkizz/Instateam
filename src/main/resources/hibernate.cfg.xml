@@ -1,0 +1,15 @@
+<hibernate-configuration>
+    <session-factory>
+        <!-- SQL dialect -->
+        <property name="dialect">org.hibernate.dialect.H2Dialect</property>
+
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">true</property>
+
+        <property name="format_sql">true</property>
+
+        <!-- Update the database schema (structure) on startup -->
+        <property name="hbm2ddl.auto">create-drop</property>
+    </session-factory>
+
+</hibernate-configuration>
