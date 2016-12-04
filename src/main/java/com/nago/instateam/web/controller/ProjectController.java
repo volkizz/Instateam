@@ -5,7 +5,6 @@ import static com.nago.instateam.model.Project.projectComparator;
 import com.nago.instateam.model.Collaborator;
 import com.nago.instateam.model.Project;
 import com.nago.instateam.model.Role;
-import com.nago.instateam.service.CollaboratorService;
 import com.nago.instateam.service.ProjectService;
 import com.nago.instateam.service.RoleService;
 import com.nago.instateam.web.FlashMessage;
@@ -33,11 +32,8 @@ public class ProjectController {
   @Autowired
   private RoleService roleService;
 
-  @Autowired
-  private CollaboratorService collaboratorService;
-
   @SuppressWarnings("unchecked")
-  @RequestMapping("/projects")
+  @RequestMapping(value = {"/","/projects"})
   public String listCategories(Model model) {
     List<Project> projects = projectService.findAll();
 
