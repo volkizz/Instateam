@@ -9,7 +9,7 @@
         <property name="format_sql">true</property>
 
         <!-- Update the database schema (structure) on startup -->
-        <property name="hbm2ddl.auto">create-drop</property>
+        <property name="hbm2ddl.auto">update</property>
     </session-factory>
 
 </hibernate-configuration>
